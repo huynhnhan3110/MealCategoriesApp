@@ -1,5 +1,5 @@
 # meals_app
 
-![abc](./images/Screenshot_1632926298.png =250x)
+![Home](./images/Screenshot_1632926298.png){ width=50% }
 
-![abc](./images/Screenshot_1632926308.png =250x)
+![CategoryMealScreen](./images/Screenshot_1632926308.png){ width=50% }
