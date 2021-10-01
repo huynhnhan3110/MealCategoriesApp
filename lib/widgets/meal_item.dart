@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/models/meal.dart';
+import '../models/meal.dart';
+import '../screens/meal_detail_screen.dart';
 
 class MealItem extends StatelessWidget {
+  final String id;
   final String title;
   final String urlImage;
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
   MealItem(
-      {this.title,
+      {this.id,
+      this.title,
       this.urlImage,
       this.duration,
       this.complexity,
@@ -28,7 +31,8 @@ class MealItem extends StatelessWidget {
         return 'Unknown Complexity';
     }
   }
-String get getAffordability {
+
+  String get getAffordability {
     switch (affordability) {
       case Affordability.Affordable:
         return 'Affordable';
@@ -43,13 +47,17 @@ String get getAffordability {
         return 'Unknown Affordability';
     }
   }
-  void onSelected() {
-    print("selected");
+
+  void onSelected(BuildContext context) {
+    Navigator.of(context).pushNamed(MealDetailScreen.routeName, arguments: {
+      'id': id,
+    });
   }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onSelected,
+      onTap: () => onSelected(context),
       borderRadius: BorderRadius.circular(15),
       child: Card(
         margin: const EdgeInsets.all(10),
